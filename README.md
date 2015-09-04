@@ -4,12 +4,20 @@ SugarCRM CodeSniffer
 
 ### Install PHP CodeSniffer
 
-* 
-  ```
-  pear install PHP_CodeSniffer
+  ```bash
+pear install PHP_CodeSniffer
+
   ```
 
-### Install SugarCRM CodeSniffer
+On Windows:
+
+```bash
+cd C:\xampp\php
+php go-pear.phar
+pear install PHP_CodeSniffer
+```
+
+### Clone SugarCRM CodeSniffer
 
 * 
   ```
@@ -20,12 +28,14 @@ SugarCRM CodeSniffer
 
 You have to copy the entire sub-folder SugarCS of this repo into the CodeSniffers Standards
 
-* 
   ```bash
-  cd ./SugarCRMCodeSniffer
+cd ./SugarCRMCodeSniffer
+cp -r ./SugarCS   /usr/share/php/PHP/CodeSniffer/Standards/
 
-  cp ./SugarCS   /usr/share/php/PHP/CodeSniffer/Standards/
   ```
+
+On Windows copy folder SugarCS to  C:\xampp\php\pear\PHP\CodeSniffer\Standards
+
 
 ### Add SugarCS to PHPStorm Inspections Profile
 * in PHPStorm from *File/Settings/Editor/Inspections*
