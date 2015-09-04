@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ruleset name="Sugar Coding Standard">
+    <!--
+        SugarCRM coding standard
+
+        Customization rules: http://pear.php.net/manual/tr/package.php.php-codesniffer.annotated-ruleset.php
+    -->
+
+    <!--
+       The name attribute of the ruleset tag is displayed
+       when running PHP_CodeSniffer with the -v command line
+       argument. The description tag below is not displayed anywhere
+       except in this file, so it can contain information for
+       developers who may change this file in the future.
+    -->
+    <description>SugarCRM Coding Standard</description>
+
+    <!-- include all PSR2 sniffs -->
+    <rule ref="PSR2">
+        <!-- Exclude some sniffs from PSR2 -->
+        <exclude name="PSR1.Classes.ClassDeclaration.MissingNamespace"/>
+
+        <!-- A file should declare new symbols (classes, functions, constants, etc.) and cause no other side effects,
+        or it should execute logic with side effects, but should not do both. The first symbol is defined on line 5 and
+        the first side effect is on line 3. -->
+        <exclude name="PSR1.Files.SideEffects.FoundWithSymbols"/>
+
+
+        <!-- BEGIN Sniffs that wrapped in custom sniffs -->
+        <!-- if (!defined('sugarEntry')) define('sugarEntry', true); -->
+        <!-- Inline control structures are not allowed   -->
+        <exclude name="Generic.ControlStructures.InlineControlStructure.NotAllowed"/>
+
+        <!-- Constants must be uppercase; expected 'SUGARENTRY' but found 'sugarEntry' -->
+        <exclude name="Generic.NamingConventions.UpperCaseConstantName.ConstantNotUpperCase"/>
+        <!-- END Sniffs that wrapped in custom sniffs -->
+
+    </rule>
+
+	<!-- SugarCS that are auto included:
+		<rule ref="SugarCS.Commenting.ClassComment"/>
+		<rule ref="SugarCS.Commenting.FunctionComment"/>
+		<rule ref="SugarCS.ControlStructures.InlineControlStructure"/>
+		<rule ref="SugarCS.NamingConventions.UpperCaseConstantName"/>
+	 -->
+	<!-- Include some sniffs from all around the place -->
+
+</ruleset>
